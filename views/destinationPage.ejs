@@ -34,13 +34,13 @@
         <div class="filterBox" style="width: 20rem;">
             <form method="get" action="/apollo">
             <div class="filters">
-                Filters<button>Clear All</button>
+                Filters<button style="margin: 0;">Clear All</button>
             </div>
             <div class="near"><a href="#" style="text-decoration: none; color: #349d81;">Show Doctors Near Me</a></div>
             <div class="consult" style="display: flex; flex-direction: column; margin-bottom: 10px;">
                 <p style="font-size: large; font-weight: 700;">Modes of consult</p>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Online Consult" style="margin-right: 6px;">Hospital Visit</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Hospital Visit" style="margin-right: 6px;">Online Consult</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Hospital Visit" style="margin-right: 6px;">Hospital Visit</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Online Consult" style="margin-right: 6px;">Online Consult</label>
             </div>
             <div class="experience" style="display: flex; flex-direction: column; margin-bottom: 10px;">
                 <p style="font-size: large; font-weight: 700;">Experience(In Years)</p>
@@ -64,7 +64,7 @@
                 <div class="physicianBox" style="height: max-content; padding: 10px 30px; border: 1px solid #80808057; border-radius: 10px; margin: 10px 0px;">
                     <p class="name" style="font-size: 20px; font-weight: 700; margin: 5px 0px;"><%= doctor.name%></p>
                     <p style="font-weight: 500; color: gray; margin: 5px 0px;">General Physician</p>
-                    <p class="experience" style="font-size: 18px; font-weight: 800; color: #8a2be2cf;"><%= doctor.experience%> > MBBS</p>
+                    <p class="experience" style="font-size: 18px; font-weight: 800; color: #8a2be2cf;"><%= doctor.experience%> Years > MBBS</p>
                     <span style="font-weight: 600; font-size: 25px;">₹<%= doctor.fees%><button><%= doctor.consult%></button></span>
                 </div>
             <%}%>
