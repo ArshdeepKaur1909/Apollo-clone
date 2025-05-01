@@ -32,34 +32,43 @@
     </div>
     <div class="mainbar">
         <div class="filterBox" style="width: 20rem;">
+            <form method="get" action="/apollo">
             <div class="filters">
                 Filters<button>Clear All</button>
             </div>
             <div class="near"><a href="#" style="text-decoration: none; color: #349d81;">Show Doctors Near Me</a></div>
             <div class="consult" style="display: flex; flex-direction: column; margin-bottom: 10px;">
                 <p style="font-size: large; font-weight: 700;">Modes of consult</p>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">Hospital Visit</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">Online Consult</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Online Consult" style="margin-right: 6px;">Hospital Visit</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" name="Consult" value="Hospital Visit" style="margin-right: 6px;">Online Consult</label>
             </div>
             <div class="experience" style="display: flex; flex-direction: column; margin-bottom: 10px;">
                 <p style="font-size: large; font-weight: 700;">Experience(In Years)</p>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">0-5</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">6-10</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">11-16</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">16+</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="experience" value="0-5">0-5</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="experience" value="6-10">6-10</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="experience" value="11-16">11-16</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="experience" value="16+">16+</label>
             </div>
             <div class="fees" style="display: flex; flex-direction: column; margin-bottom: 10px;">
                 <p style="font-size: large; font-weight: 700;">Fees(In Rupees)</p>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">100-500</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">500-1000</label>
-                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;">1000+</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="fees" value="100-500">100-500</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="fees" value="500-1000">500-1000</label>
+                <label style="font-size: medium; margin: 10px 0px;"><input type="checkbox" style="margin-right: 6px;" name="fees" value="1000+">1000+</label>
             </div>
-            <div class="language" style="display: flex; flex-direction: column; margin-bottom: 10px;"></div>
-            <div class="facility" style="display: flex; flex-direction: column; margin-bottom: 10px;"></div>
+            <button type="submit">Apply Filter</button>
+            </form>
         </div>
-        <div class="physician" style="width: 40rem;"></div>
-        <div class="callBox" style="width: 40rem;">
-            <div></div>
+        <div class="physician">
+            <p style="padding: 50px 30px 20px; font-size: 30px; font-weight: 700;">Consult General Physicians Online - Internal Medicine Specialists</p>
+            <% for(doctor of result){%>
+                <div class="physicianBox" style="height: max-content; padding: 10px 30px; border: 1px solid #80808057; border-radius: 10px; margin: 10px 0px;">
+                    <p class="name" style="font-size: 20px; font-weight: 700; margin: 5px 0px;"><%= doctor.name%></p>
+                    <p style="font-weight: 500; color: gray; margin: 5px 0px;">General Physician</p>
+                    <p class="experience" style="font-size: 18px; font-weight: 800; color: #8a2be2cf;"><%= doctor.experience%> > MBBS</p>
+                    <span style="font-weight: 600; font-size: 25px;">₹<%= doctor.fees%><button><%= doctor.consult%></button></span>
+                </div>
+            <%}%>
+            <form method="get" action="/form"><button type="submit">Add Doctor</button></form>
         </div>
     </div>
 </body>

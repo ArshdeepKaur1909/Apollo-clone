@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Physician - Book Appointment Online with General Physician &amp; Internal Medicine Doctors near you | Apollo 247</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/form.css">
+</head>
+<body>
+    <center>
+        <div class="register">
+            <form method="post" action="/addDoctor">
+                <p>Log In or Sign In</p>
+                <div class="form-boxes">
+                    <label>Name:</label>
+                    <input type="text" name="Name" class="element">
+                </div>
+                <div class="form-boxes">
+                    <label>Experience:</label>
+                    <input type="text" name="Experience" class="element">
+                </div>
+                <div class="form-boxes">
+                    <label>Fees(In Rupees):</label>
+                    <input type="text" name="Fees" class="element">
+                </div>
+                <fieldset class="form-boxes">
+                    <legend>Modes of Consult</legend>
+                    <label style="margin-left: 50px;"><input type="checkbox" name="Consult" value="Online Consult">Online Consult</label>
+                    <label style="margin-left: 50px;"><input type="checkbox" name="Consult" value="Hospital Visit">Hospital Visit</label>
+                </fieldset>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </center>
+</body>
+</html>
