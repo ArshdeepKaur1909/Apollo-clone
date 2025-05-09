@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const mysql = require("mysql2");
 const methodOverride = require("method-override");
+const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded(({extended: true})));
 app.set("view engine", "ejs");
@@ -86,6 +87,6 @@ app.post("/addDoctor", (req, res) => {
     }
     console.log(req.body);
 });
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("Listening Started");
 });
