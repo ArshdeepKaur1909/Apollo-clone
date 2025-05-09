@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
     password: 'Arshbanwait2@'
 });
 
-app.get("/apollo", (req, res) => {
+app.get("/", (req, res) => {
   let { Consult, experience, fees } = req.query;
 
   // Normalize to arrays
@@ -79,7 +79,7 @@ app.post("/addDoctor", (req, res) => {
     try{
       connection.query(q, (err, result) => {
         if(err) throw err;
-        res.redirect("/apollo");
+        res.redirect("/");
       });
     }catch(error){
      console.log(`Error occured: ${error}`);
