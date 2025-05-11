@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: my-node-app
+    env: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: DB_HOST
+        value: sql.freedb.tech
+      - key: DB_USER
+        value: freedb_Arshdeep
+      - key: DB_PASSWORD
+        value: 7XXHgyDrt@NF*Qj
+      - key: DB_NAME
+        value: freedb_ApolloClone
