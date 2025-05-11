@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mysql = require("mysql2");
+require('dotenv').config();
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 8080;
 
@@ -12,10 +13,18 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    database: 'apollo',
-    password: 'Arshbanwait2@'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('❌ MySQL connection failed:', err.stack);
+    return;
+  }
+  console.log('✅ Connected to FreeDB.tech MySQL database');
 });
 
 app.get("/", (req, res) => {
@@ -88,5 +97,5 @@ app.post("/addDoctor", (req, res) => {
     console.log(req.body);
 });
 app.listen(PORT, () => {
-    console.log("Listening Started");
+    console.log("Listening Started At", PORT);
 });
