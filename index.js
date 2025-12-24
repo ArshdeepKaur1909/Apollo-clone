@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const mysql = require("mysql2");
 require('dotenv').config();
+import fs from "fs";
 const methodOverride = require("method-override");
 const PORT = process.env.PORT || 8080;
 
