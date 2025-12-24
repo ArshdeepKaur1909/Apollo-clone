@@ -2,18 +2,19 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mysql = require("mysql2");
-require('dotenv').config();
-import fs from "fs";
+const fs = require("fs");               // ✅ FIXED
+require("dotenv").config();
 const methodOverride = require("method-override");
+
 const PORT = process.env.PORT || 8080;
 
-app.use(express.urlencoded(({extended: true})));
+app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
-// SETTING UP THE CONNECTION BETWEEN DATABASE AND INDEX.JS
+// DATABASE CONNECTION
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
